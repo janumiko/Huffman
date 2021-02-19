@@ -1,3 +1,5 @@
+import os
+
 def main():
     text = input("Input text: ")
     
@@ -5,7 +7,16 @@ def main():
     huffmantree = create_tree(frequencies)
 
     for (key,code) in frequencies:
-        print(key, huffmantree[key])
+        print(key + " | " + huffmantree[key])
+    
+    print("Do You want to print out the result to txt file?")
+    response = 'nochoice'
+
+    while response.lower() not in {"yes", "no", "y" , "n"}:
+        response = input("Please enter yes or no: ")
+
+    if (response == "yes" or response == "y"):
+        print_to_file(frequencies,huffmantree)
 
     print("Press Enter to exit the program:")
     input()
@@ -59,5 +70,15 @@ def create_tree(pairs):
 
     huffman = huffman_coding(pairs[0][0])
     return huffman
+
+def print_to_file(content, huffman_codes):
+    current_directory = os.getcwd()
+    target_directory = os.path.join(current_directory, r'output')
+    if not os.path.exists(target_directory):
+        os.makedirs(target_directory)
+    with open(os.path.join(target_directory,"output.txt"), "w") as file1:
+        file1.write("Character" + " | " + "Code" + '\n')
+        for (key,code) in content:
+            file1.write(key + " | " + huffman_codes[key] + '\n')
 
 main()
