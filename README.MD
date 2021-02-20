@@ -7,5 +7,5 @@
 <li>Execute the .py file. Console window should open.</li>
 <li>Type in text which you want to encode.</li>
 <li>Results should have been printed out. You will be asked if you want to save output to a file.</li>
-<li>If you agreed, results will be saved in text file in directory called "output" inside directory with .py file.</li>
+<li>If you agreed, results will be saved in text file in directory called "output" inside main directory.</li>
 <li>Press enter to exit from the program.</li>
