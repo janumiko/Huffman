@@ -13,3 +13,5 @@ def save_to_file(content, huffman_codes):
         file1.write("Character" + " | " + "Code" + '\n')
         for (key,code) in content:
             file1.write(key + " | " + huffman_codes[key] + '\n')
+    
+    print("Results have been saved succesfully.\n")

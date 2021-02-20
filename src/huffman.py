@@ -12,10 +12,10 @@ def main():
     print("Do You want to print out the result to txt file?")
     response = 'nochoice'
 
-    while response.lower() not in {"yes", "no", "y" , "n"}:
+    while response.lower() not in {"yes", "no", "y", "n"}:
         response = input("Please enter yes or no: ")
 
-    if (response == "yes" or response == "y"):
+    if (response.lower() == "yes" or "y"):
         save_to_file(frequencies,huffmantree)
 
     print("Press Enter to exit the program:")
