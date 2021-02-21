@@ -1,3 +1,0 @@
-Character | Code
-g | 1
-a | 0
