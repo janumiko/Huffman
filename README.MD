@@ -4,7 +4,7 @@
 
 <p>How to use:</p>
 <li>Install python3 if you do not have one.</li>
-<li>Execute the .py file. Console window should open.</li>
+<li>Execute the run.py file.</li>
 <li>Type in text which you want to encode.</li>
 <li>Results should have been printed out. You will be asked if you want to save output to a file.</li>
 <li>If you agreed, results will be saved in text file in directory called "output" inside main directory.</li>
