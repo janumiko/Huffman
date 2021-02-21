@@ -1,12 +1,10 @@
 from print_to_file import save_to_file
 
-def main():
-    text = input("Input text: ")
-    
+def core() -> None:
     frequencies = calculate_frequency(text)
     huffmantree = create_tree(frequencies)
 
-    for (key,code) in frequencies:
+    for key, _ in frequencies:
         print(key + " | " + huffmantree[key])
     
     print("Do You want to print out the result to txt file?")
@@ -15,11 +13,8 @@ def main():
     while response.lower() not in {"yes", "no", "y", "n"}:
         response = input("Please enter yes or no: ")
 
-    if (response.lower() == "yes" or "y"):
+    if (response.lower() == "yes" or response.lower() == "y"):
         save_to_file(frequencies,huffmantree)
-
-    print("Press Enter to exit the program:")
-    input()
 
 class NodeTree(object):
 
@@ -33,7 +28,7 @@ class NodeTree(object):
     def __str__(self):
         return '%s_%s' % (self.left_node, self.right_node)
 
-def huffman_coding(node, Isleft=True, binary=''):
+def huffman_coding(node: NodeTree, Isleft=True, binary='') -> dict[str, int]:
     codes = dict()
     
     if type(node) is str:
@@ -45,7 +40,7 @@ def huffman_coding(node, Isleft=True, binary=''):
 
     return codes
 
-def calculate_frequency(sourcetext):
+def calculate_frequency(sourcetext: str) -> dict[str, int]:
     frequency = {}
 
     for char in sourcetext:
@@ -57,7 +52,7 @@ def calculate_frequency(sourcetext):
     frequency = sorted(frequency.items(), key=lambda x: x[1], reverse=True)
     return frequency
 
-def create_tree(pairs):
+def create_tree(pairs: dict[str, int]) -> dict[str, int]:
 
     while len(pairs) > 1:
         (key1, char1) = pairs[-1]
@@ -71,4 +66,13 @@ def create_tree(pairs):
     huffman = huffman_coding(pairs[0][0])
     return huffman
 
-main()
+if __name__ == "__main__":
+    text = ""
+    while text == "":
+        text = input("Input text: ")
+        if text == "":
+            print("Text shouldn't be empty! Try Again!")
+
+    core()
+    print("Press Enter to exit the program:")
+    input()

@@ -1,6 +1,6 @@
 import os
 
-def save_to_file(content, huffman_codes):
+def save_to_file(content: str, huffman_codes: dict[str, int]) -> None:
     current_directory = os.getcwd()
     output_directory = os.path.dirname(current_directory)
 
@@ -11,7 +11,7 @@ def save_to_file(content, huffman_codes):
 
     with open(os.path.join(output_directory,"output.txt"), "w") as file1:
         file1.write("Character" + " | " + "Code" + '\n')
-        for (key,code) in content:
+        for key, _ in content:
             file1.write(key + " | " + huffman_codes[key] + '\n')
     
     print("Results have been saved succesfully.\n")
