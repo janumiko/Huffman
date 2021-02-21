@@ -7,7 +7,7 @@ def core() -> None:
     for key, _ in frequencies:
         print(key + " | " + huffmantree[key])
     
-    print("Do You want to print out the result to txt file?")
+    print("Do You want to print out the result to a .txt file?")
     response = 'nochoice'
 
     while response.lower() not in {"yes", "no", "y", "n"}:
