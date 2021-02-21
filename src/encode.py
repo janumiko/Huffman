@@ -1,7 +1,7 @@
-from print_to_file import save_to_file
+from src.print_to_file import save_to_file
 
-def core() -> None:
-    frequencies = calculate_frequency(text)
+def core(content: str) -> None:
+    frequencies = calculate_frequency(content)
     huffmantree = create_tree(frequencies)
 
     for key, _ in frequencies:
@@ -72,7 +72,6 @@ if __name__ == "__main__":
         text = input("Input text: ")
         if text == "":
             print("Text shouldn't be empty! Try Again!")
-
-    core()
+    core(text)
     print("Press Enter to exit the program:")
     input()
