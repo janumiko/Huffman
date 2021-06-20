@@ -1,4 +1,5 @@
 from src.print_to_file import save_to_file
+from typing import Dict
 
 def core(content: str) -> None:
     frequencies = calculate_frequency(content)
@@ -28,7 +29,7 @@ class NodeTree(object):
     def __str__(self):
         return '%s_%s' % (self.left_node, self.right_node)
 
-def huffman_coding(node: NodeTree, Isleft=True, binary='') -> dict[str, int]:
+def huffman_coding(node: NodeTree, Isleft=True, binary='') -> Dict[str, int]:
     codes = dict()
     
     if type(node) is str:
@@ -40,7 +41,7 @@ def huffman_coding(node: NodeTree, Isleft=True, binary='') -> dict[str, int]:
 
     return codes
 
-def calculate_frequency(sourcetext: str) -> dict[str, int]:
+def calculate_frequency(sourcetext: str) -> Dict[str, int]:
     frequency = {}
 
     for char in sourcetext:
@@ -52,7 +53,7 @@ def calculate_frequency(sourcetext: str) -> dict[str, int]:
     frequency = sorted(frequency.items(), key=lambda x: x[1], reverse=True)
     return frequency
 
-def create_tree(pairs: dict[str, int]) -> dict[str, int]:
+def create_tree(pairs: Dict[str, int]) -> Dict[str, int]:
 
     while len(pairs) > 1:
         (key1, char1) = pairs[-1]
