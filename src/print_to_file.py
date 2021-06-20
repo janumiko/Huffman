@@ -10,9 +10,14 @@ def save_to_file(content: str, huffman_codes: Dict[str, int]) -> None:
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
 
-    with open(os.path.join(output_directory,"output.txt"), "w") as file1:
-        file1.write("Character" + " | " + "Code" + '\n')
-        for key, _ in content:
-            file1.write(key + " | " + huffman_codes[key] + '\n')
-    
+    try:
+        with open(os.path.join(output_directory,"output.txt"), "w") as file1:
+            file1.write("Character" + " | " + "Code" + '\n')
+            for key, _ in content:
+                file1.write(key + " | " + huffman_codes[key] + '\n')
+    except IOError:
+        print("File didn't open, results have not been saved.")
+        input()
+        raise
+
     print("Results have been saved succesfully.\n")
