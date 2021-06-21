@@ -36,7 +36,7 @@ def calculate_frequency(sourcetext: str) -> List[Tuple[str, int]]:
     frequency = sorted(frequency.items(), key=lambda x: x[1], reverse=True)
     return frequency
 
-def create_tree(pairs: Dict[str, int]) -> Dict[str, int]:
+def create_tree(pairs: List[Tuple[str, int]]) -> Dict[str, int]:
 
     while len(pairs) > 1:
         (key1, char1) = pairs[-1]
