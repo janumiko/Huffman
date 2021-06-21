@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, List, Tuple
 
 class NodeTree(object):
 
@@ -24,7 +24,7 @@ def huffman_coding(node: NodeTree, Isleft=True, binary='') -> Dict[str, int]:
 
     return codes
 
-def calculate_frequency(sourcetext: str) -> Dict[str, int]:
+def calculate_frequency(sourcetext: str) -> List[Tuple[str, int]]:
     frequency = {}
 
     for char in sourcetext:
@@ -49,4 +49,3 @@ def create_tree(pairs: Dict[str, int]) -> Dict[str, int]:
 
     huffman = huffman_coding(pairs[0][0])
     return huffman
-
