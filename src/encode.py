@@ -1,23 +1,4 @@
-from src.print_to_file import save_to_file
 from typing import Dict
-
-def core(content: str) -> None:
-    frequencies = calculate_frequency(content)
-    print(frequencies)
-    huffmantree = create_tree(frequencies)
-    print(huffmantree)
-
-    for key, _ in frequencies:
-        print(key + " | " + huffmantree[key])
-    
-    print("Do You want to print out the result to a .txt file?")
-    response = 'nochoice'
-
-    while response.lower() not in {"yes", "no", "y", "n"}:
-        response = input("Please enter yes or no: ")
-
-    if (response.lower() == "yes" or response.lower() == "y"):
-        save_to_file(frequencies,huffmantree)
 
 class NodeTree(object):
 
@@ -69,17 +50,3 @@ def create_tree(pairs: Dict[str, int]) -> Dict[str, int]:
     huffman = huffman_coding(pairs[0][0])
     return huffman
 
-def get_input():
-    text = ""
-    while text == "":
-        text = input("Input text: ")
-        if text == "":
-            print("Text shouldn't be empty! Try Again!")
-    core(text)
-    print("Press Enter to exit the program:")
-    input()
-
-if __name__ == "__main__":
-    get_input()
-    print("Press Enter to exit the program:")
-    input()
