@@ -19,7 +19,7 @@ def main(content: str) -> None:
     if (response.lower() == "yes" or response.lower() == "y"):
         save_to_file(frequencies,huffmantree)
 
-def get_input():
+def get_input() -> None:
     text = ""
     while text == "":
         text = input("Input text: ")
