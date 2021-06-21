@@ -3,9 +3,7 @@ from src.encode import calculate_frequency, create_tree
 
 def main(content: str) -> None:
     frequencies = calculate_frequency(content)
-    print(frequencies)
     huffmantree = create_tree(frequencies)
-    print(huffmantree)
 
     for key, _ in frequencies:
         print(key + " | " + huffmantree[key])
@@ -28,4 +26,3 @@ def get_input() -> None:
     main(text)
     print("Press Enter to exit the program:")
     input()
-
