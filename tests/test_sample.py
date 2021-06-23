@@ -1,6 +1,6 @@
-from venv import create
 from ..src.encode import calculate_frequency, create_tree
-    
+
+
 def test_frequency_calculation():
 
     frequency_1 = calculate_frequency("aabbcc")
@@ -15,6 +15,7 @@ def test_frequency_calculation():
 
     frequency_empty = calculate_frequency("")
     assert frequency_empty == []
+
 
 def test_create_tree():
 

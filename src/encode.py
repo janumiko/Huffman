@@ -1,5 +1,6 @@
 from typing import Dict, List, Tuple
 
+
 class NodeTree(object):
 
     def __init__(self, left_node=None, right_node=None):
@@ -12,17 +13,19 @@ class NodeTree(object):
     def __str__(self):
         return '%s_%s' % (self.left_node, self.right_node)
 
-def huffman_coding(node: NodeTree, Isleft=True, binary='') -> Dict[str, int]:
+
+def huffman_coding(node: NodeTree, binary='') -> Dict[str, int]:
     codes = dict()
-    
+
     if type(node) is str:
         return {node: binary}
     (l, r) = node.child()
 
-    codes.update(huffman_coding(l, True, binary + '0'))
-    codes.update(huffman_coding(r, False, binary + '1'))
+    codes.update(huffman_coding(l, binary + '0'))
+    codes.update(huffman_coding(r, binary + '1'))
 
     return codes
+
 
 def calculate_frequency(sourcetext: str) -> List[Tuple[str, int]]:
     frequency = {}
@@ -35,6 +38,7 @@ def calculate_frequency(sourcetext: str) -> List[Tuple[str, int]]:
 
     frequency = sorted(frequency.items(), key=lambda x: x[1], reverse=True)
     return frequency
+
 
 def create_tree(pairs: List[Tuple[str, int]]) -> Dict[str, int]:
 
