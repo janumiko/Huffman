@@ -4,9 +4,7 @@ from typing import Dict
 
 def save_to_file(content: str, huffman_codes: Dict[str, int]) -> None:
     current_directory = os.getcwd()
-    output_directory = os.path.dirname(current_directory)
-
-    output_directory = os.path.join(output_directory, r'output')
+    output_directory = os.path.join(current_directory, r'output')
 
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
